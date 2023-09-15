@@ -1,6 +1,6 @@
 [package]
 name = "jiang_mini_grep"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2021"
 description = "minigrep 查询文件的某个字符"
 license = "MIT"
