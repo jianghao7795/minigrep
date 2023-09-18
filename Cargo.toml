@@ -4,9 +4,9 @@ version = "0.1.1"
 edition = "2021"
 description = "minigrep 查询文件的某个字符"
 license = "MIT"
-documentation = "https://www.github.com/JiangHaoCode/minigrep"
-homepage = "https://www.github.com/JiangHaoCode/minigrep"
-repository = "https://www.github.com/JiangHaoCode/minigrep"
+documentation = "https://github.com/JiangHaoCode/minigrep"
+homepage = "https://github.com/JiangHaoCode/minigrep"
+repository = "https://github.com/JiangHaoCode/minigrep"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
