@@ -1,4 +1,3 @@
-// use core::iter::traits::iterator;
 use std::error::Error;
 use std::{env, fs};
 
@@ -54,7 +53,7 @@ pub fn run(config: Config) -> Result<(), Box<dyn Error>> {
 pub fn search<'a>(query: &str, contents: &'a str) -> Vec<&'a str> {
     contents
         .lines()
-        .filter(|line| line.contains(query))
+        .filter(|line| line.contains(query)) // filter 参数必包 筛选
         .collect()
 }
 
@@ -64,9 +63,11 @@ pub fn search_case_insensitive<'a>(query: &str, contents: &'a str) -> Vec<&'a st
 
     for line in contents.lines() {
         if line.to_lowercase().contains(&query) {
-            results.push(line);
+            results.push(line); // 这里确定Vec<> 的类型
         }
     }
+
+    // results.push("99");
 
     results
 }

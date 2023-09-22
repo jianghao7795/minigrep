@@ -13,4 +13,9 @@ fn main() {
         println!("报错: {e}");
         process::exit(1);
     }
+
+    let v = Some(3);
+    if let Some(e) = v {
+        println!("i32 is {}", e);
+    }
 }
