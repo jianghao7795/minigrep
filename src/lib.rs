@@ -8,6 +8,7 @@ pub struct Config {
 }
 
 impl Config {
+    // 没有self Config::build
     pub fn build(mut args: impl Iterator<Item = String>) -> Result<Config, &'static str> {
         args.next();
 
@@ -35,6 +36,8 @@ impl Config {
     }
 }
 
+// 有self Config 实体.build
+
 pub fn run(config: Config) -> Result<(), Box<dyn Error>> {
     let contents = fs::read_to_string(config.file_path)?;
 
@@ -44,6 +47,10 @@ pub fn run(config: Config) -> Result<(), Box<dyn Error>> {
         search(&config.query, &contents)
     };
 
+    if results.len() == 0 {
+        println!("{:?}", results);
+        println!("未找到");
+    }
     for line in results {
         println!("{line}");
     }
