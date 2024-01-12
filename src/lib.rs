@@ -9,6 +9,7 @@ pub struct Config {
 
 impl Config {
     // 没有self Config::build
+    // Iterator 迭代器
     pub fn build(mut args: impl Iterator<Item = String>) -> Result<Config, &'static str> {
         args.next();
 
