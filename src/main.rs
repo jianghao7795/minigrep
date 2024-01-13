@@ -4,7 +4,8 @@ use jiang_mini_grep::run;
 use jiang_mini_grep::Config;
 
 fn main() {
-    let config = Config::build(env::args()).unwrap();
+    let args = env::args(); // Args 是 输入的迭代器
+    let config = Config::build(args).unwrap();
 
     run(config).unwrap()
     // unwrap_or_else 错误处理
