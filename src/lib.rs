@@ -7,8 +7,9 @@ pub struct Config {
     pub ignore_case: bool,
 }
 
+// 读取配置
 impl Config {
-    // 没有self Config::build
+    // 没有self的Config调用build方法 Config::build
     // Iterator 迭代器
     pub fn build(mut args: impl Iterator<Item = String>) -> Result<Config, &'static str> {
         args.next();
@@ -92,7 +93,7 @@ safe, fast, productive.
 Pick three.";
 
         assert_eq!(
-            vec!["safe, fast, productive."],
+            vec!["safe, fast, productive.", "Rust:"],
             crate::search(query, contents)
         );
     }
