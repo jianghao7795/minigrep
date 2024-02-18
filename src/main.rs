@@ -4,7 +4,7 @@ use jiang_mini_grep::run;
 use jiang_mini_grep::Config;
 
 fn main() {
-    let args = env::args(); // Args 是 输入的迭代器
+    let args = env::args(); // Args 实现了 Iterator
     let config = Config::build(args).unwrap();
 
     run(config).unwrap()
