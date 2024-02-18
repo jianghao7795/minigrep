@@ -1,13 +1,13 @@
 use std::env;
 
-use jiang_mini_grep::run;
-use jiang_mini_grep::Config;
+use minigrep::run;
+use minigrep::Config;
 
 fn main() {
     let args = env::args(); // Args 实现了 Iterator
     let config = Config::build(args).unwrap();
 
-    run(config).unwrap()
+    run(config).unwrap();
     // unwrap_or_else 错误处理
     // let config = Config::build(env::args()).unwrap_or_else(|err| {
     //     println!("输入错误: {err}");

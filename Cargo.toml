@@ -1,5 +1,5 @@
 [package]
-name = "jiang_mini_grep"
+name = "minigrep"
 version = "0.1.1"
 edition = "2021"
 description = "minigrep 查询文件的某个字符"

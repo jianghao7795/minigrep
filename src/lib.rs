@@ -1,6 +1,7 @@
 use std::error::Error;
 use std::{env, fs};
 
+#[derive(Debug, PartialEq)]
 pub struct Config {
     pub query: String,
     pub file_path: String,
@@ -37,6 +38,7 @@ impl Config {
 // 有self Config 实体.build
 
 pub fn run(config: Config) -> Result<(), Box<dyn Error>> {
+    println!("{:?}", config);
     let contents = fs::read_to_string(config.file_path)?;
 
     let results = if config.ignore_case {
@@ -46,7 +48,7 @@ pub fn run(config: Config) -> Result<(), Box<dyn Error>> {
     };
 
     if results.len() == 0 {
-        println!("{:?}", results);
+        // println!("{:?}", results);
         println!("未找到");
     }
     for line in results {
