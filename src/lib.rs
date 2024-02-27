@@ -11,10 +11,9 @@ pub struct Config {
 // 读取配置
 impl Config {
     // 没有self的Config调用build方法 Config::build
-    // Iterator 迭代器
+    // Iterator 迭代器 args
     pub fn build(mut args: impl Iterator<Item = String>) -> Result<Config, &'static str> {
         args.next();
-
         let query = match args.next() {
             Some(arg) => arg,
             None => return Err("Didn't get a query string"),
@@ -38,7 +37,7 @@ impl Config {
 // 有self Config 实体.build
 
 pub fn run(config: Config) -> Result<(), Box<dyn Error>> {
-    println!("{:?}", config);
+    // println!("{:?}", config);
     let contents = fs::read_to_string(config.file_path)?;
 
     let results = if config.ignore_case {
@@ -60,7 +59,7 @@ pub fn run(config: Config) -> Result<(), Box<dyn Error>> {
 pub fn search<'a>(query: &str, contents: &'a str) -> Vec<&'a str> {
     contents
         .lines()
-        .filter(|line| line.contains(query)) // filter 参数必包 筛选
+        .filter(|line| line.contains(&query)) // filter 参数必包 筛选
         .collect()
 }
 
