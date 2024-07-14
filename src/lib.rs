@@ -46,7 +46,7 @@ pub fn run(config: Config) -> Result<(), Box<dyn Error>> {
         search(&config.query, &contents)
     };
 
-    if results.len() == 0 {
+    if results.is_empty() {
         // println!("{:?}", results);
         println!("未找到");
     }
@@ -59,7 +59,7 @@ pub fn run(config: Config) -> Result<(), Box<dyn Error>> {
 pub fn search<'a>(query: &str, contents: &'a str) -> Vec<&'a str> {
     contents
         .lines()
-        .filter(|line| line.contains(&query)) // filter 参数必包 筛选
+        .filter(|line| line.contains(query)) // filter 参数必包 筛选
         .collect()
 }
 
