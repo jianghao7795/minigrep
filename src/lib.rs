@@ -8,7 +8,7 @@ pub struct Config {
     pub ignore_case: bool,
 }
 
-// 读取配置
+// 读取参数
 impl Config {
     // 没有self的Config调用build方法 Config::build
     // Iterator 迭代器 args
