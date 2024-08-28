@@ -46,10 +46,12 @@ pub fn run(config: Config) -> Result<(), Box<dyn Error>> {
         search(&config.query, &contents)
     };
 
-    if results.is_empty() {
-        // println!("{:?}", results);
-        println!("未找到");
-    }
+    // if results.is_empty() {
+    //     // println!("{:?}", results);
+    //     //  :w
+    //     //  println!("未找到");
+    // }
+    println!("{}:", config.query);
     for line in results {
         println!("{line}");
     }
