@@ -8,7 +8,7 @@ pub struct Config {
     pub ignore_case: bool,
 }
 
-// 读取配置
+// 读取参数
 impl Config {
     // 没有self的Config调用build方法 Config::build
     // Iterator 迭代器 args
@@ -34,6 +34,14 @@ impl Config {
     }
 }
 
+pub fn rbb<'a>(is_status: bool) -> Result<(), &'a str> {
+    if is_status {
+        return Ok(());
+    } else {
+        return Err("test");
+    }
+}
+
 // 有self Config 实体.build
 
 pub fn run(config: Config) -> Result<(), Box<dyn Error>> {
@@ -46,10 +54,12 @@ pub fn run(config: Config) -> Result<(), Box<dyn Error>> {
         search(&config.query, &contents)
     };
 
-    if results.len() == 0 {
-        // println!("{:?}", results);
-        println!("未找到");
-    }
+    // if results.is_empty() {
+    //     // println!("{:?}", results);
+    //     //  :w
+    //     //  println!("未找到");
+    // }
+    // println!("{}", config.query);
     for line in results {
         println!("{line}");
     }
@@ -59,7 +69,7 @@ pub fn run(config: Config) -> Result<(), Box<dyn Error>> {
 pub fn search<'a>(query: &str, contents: &'a str) -> Vec<&'a str> {
     contents
         .lines()
-        .filter(|line| line.contains(&query)) // filter 参数必包 筛选
+        .filter(|line| line.contains(query)) // filter 参数必包 筛选
         .collect()
 }
 
