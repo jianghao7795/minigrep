@@ -5,6 +5,11 @@ use std::process;
 use minigrep::Config;
 
 fn main() {
+    let i = minigrep::rbb(false);
+    match i {
+        Ok(_) => println!("finshed"),
+        Err(e) => println!("{}", e),
+    }
     let config = Config::build(env::args()).unwrap_or_else(|err| {
         println!("输入错误: {}", err);
         process::exit(1); //退出代码终止当前进程

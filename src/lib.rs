@@ -34,6 +34,14 @@ impl Config {
     }
 }
 
+pub fn rbb<'a>(is_status: bool) -> Result<(), &'a str> {
+    if is_status {
+        return Ok(());
+    } else {
+        return Err("test");
+    }
+}
+
 // 有self Config 实体.build
 
 pub fn run(config: Config) -> Result<(), Box<dyn Error>> {
@@ -51,7 +59,7 @@ pub fn run(config: Config) -> Result<(), Box<dyn Error>> {
     //     //  :w
     //     //  println!("未找到");
     // }
-    println!("{}:", config.query);
+    // println!("{}", config.query);
     for line in results {
         println!("{line}");
     }
