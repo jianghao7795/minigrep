@@ -5,7 +5,7 @@ use std::process;
 use minigrep::Config;
 
 fn main() {
-    let i = minigrep::rbb(false);
+    let i = minigrep::rbb(true);
     match i {
         Ok(_) => println!("finshed"),
         Err(e) => println!("{}", e),
